@@ -81,9 +81,10 @@
 
     <div class="content">
         <div class="title m-b-md">
-            About Me
+            About {{$data['fullname']}}
         </div>
         <p>I like to make Laravel web apps</p>
+        <p>Email me at {{$data['email']}}</p>
     </div>
 </div>
 </body>
