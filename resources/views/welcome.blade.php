@@ -81,8 +81,9 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Welcome Everyone!
                 </div>
+                <p>This is the beginning of your laravel journey</p>
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
