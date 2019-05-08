@@ -14,6 +14,8 @@
 
 
 <div class="container">
+    @include('partials._messages')
+
     @yield('content')
 
     @include('partials._footer')
@@ -22,5 +24,7 @@
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 @include('partials._javascript')
+
+@yield('scripts')
 </body>
 </html>
