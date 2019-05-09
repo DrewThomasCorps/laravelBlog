@@ -1,13 +1,16 @@
 @extends('main')
 
-@section('title', '| View Post')
+@section('title', '| Edit Blog Post')
 
 @section('content')
-    <div class="row">
-        <div class="col-md-8">
-            <h1>{{ $post->title }}</h1>
+    {!! Form::model($post, ['route'=> ['posts.update', $post->id], 'method' => 'PUT']) !!}
+    <div class="form-row">
 
-            <p class="lead">{{$post->body}}</p>
+        <div class="col-md-8">
+            {{Form::label('title', 'Title:')}}
+            {{Form::text('title', null, ["class"=>'form-control-lg form-control'])}}
+            {{Form::label('body', "Body:", ["class" => "form-spacing-top"])}}
+            {{Form::textarea('body', null, ["class" => 'form-control'])}}
         </div>
         <div class="col-md-4">
             <div class="card card-body bg-light">
@@ -23,17 +26,14 @@
                 <hr>
                 <div class="row">
                     <div class="col-sm-6">
-                        {!! Html::linkRoute('posts.edit', 'Edit', array($post->id), array('class' => 'btn btn-primary btn-block')) !!}
+                        {!! Html::linkRoute('posts.show', 'Cancel', array($post->id), array('class' => 'btn btn-danger btn-block')) !!}
                     </div>
                     <div class="col-sm-6">
-                        {!! Form::open(['route' => ['posts.destroy', $post->id], 'method'=>'DELETE']) !!}
-                        {!! Form::submit('Delete', ['class'=>'btn btn btn-danger btn-block']) !!}
-                        {!! Form::close() !!}
+                        {!! Form::submit('Save Changes', ['class'=>'btn btn-success btn-block']) !!}
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-@endsection
+    {!! Form::close() !!}
+@stop

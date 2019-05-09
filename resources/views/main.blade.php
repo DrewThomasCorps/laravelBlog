@@ -13,7 +13,7 @@
 <!-- Default Bootstrap Navbar-->
 
 
-<div class="container">
+<div class="container" style="margin-top:30px">
     @include('partials._messages')
 
     @yield('content')
