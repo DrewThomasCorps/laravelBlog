@@ -14,10 +14,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::get('blog/{slug}', ['as'=>'blog.single', 'uses'=>'BlogController@getSingle'])->where('slug', "[\w\d\-\_]+");
 Route::get('about', 'PagesController@getAbout')->name('about');
-
 Route::get('contact', 'PagesController@getContact')->name('contact');
-
 Route::get('/', 'PagesController@getIndex')->name('/');
-
 Route::resource('posts', 'PostController');
