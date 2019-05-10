@@ -35,7 +35,8 @@
                         <td>{{$post->title}}</td>
                         <td>{{substr($post->body, 0, 50)}}{{ strlen($post->body) > 50 ? "..." : "" }}</td>
                         <td>{{date('M j, Y', strtotime($post->created_at))}}</td>
-                        <td><a href="{{route('posts.show', $post->id)}}" class="btn btn-light">View</a><a href="{{route('posts.edit', $post->id)}}" class="btn btn-light">Edit</a></td>
+                        <td><a href="{{route('posts.show', $post->id)}}" class="btn btn-light">View</a><a
+                                    href="{{route('posts.edit', $post->id)}}" class="btn btn-light">Edit</a></td>
                     </tr>
                 @endforeach
 
@@ -43,5 +44,15 @@
             </table>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-8 offset-md-4">
+            <div class="align-content-md-center">
+                {!! $posts->links() !!}
+            </div>
+        </div>
+    </div>
+
+
+
 
 @endsection
