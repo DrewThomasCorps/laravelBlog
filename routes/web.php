@@ -15,6 +15,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('blog/{slug}', ['as'=>'blog.single', 'uses'=>'BlogController@getSingle'])->where('slug', "[\w\d\-\_]+");
+Route::get('blog', ['uses' => 'BlogController@getIndex', 'as' => 'blog.index']);
 Route::get('about', 'PagesController@getAbout')->name('about');
 Route::get('contact', 'PagesController@getContact')->name('contact');
 Route::get('/', 'PagesController@getIndex')->name('/');

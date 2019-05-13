@@ -8,7 +8,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item {{ Request::is('/') ? "active" : "" }}">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item {{ Request::is('blog') ? "active" : "" }}">
+                <a class="nav-link" href="/blog">Blog<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item {{ Request::is('about') ? "active" : "" }}">
                 <a class="nav-link" href="/about">About</a>
@@ -19,15 +22,15 @@
         </ul>
         <ul class="navbar-right nav navbar-nav">
             <li class="dropdown">
-                <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                <a class="dropdown-toggle nav-item" href="#" id="navbarDropdown" role="button"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     My Account
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
+                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="{{route('posts.index')}}">Posts</a></li>
                     <li><a class="dropdown-item" href="#">Another action</a></li>
                     <li><div class="dropdown-divider"></div></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <li><a class="dropdown-item" href="#">Logout</a></li>
                 </ul>
             </li>
 
