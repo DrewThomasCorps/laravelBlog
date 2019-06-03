@@ -21,19 +21,28 @@
             </li>
         </ul>
         <ul class="navbar-right nav navbar-nav">
-            <li class="dropdown">
-                <a class="dropdown-toggle nav-item" href="#" id="navbarDropdown" role="button"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    My Account
-                </a>
-                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="{{route('posts.index')}}">Posts</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><div class="dropdown-divider"></div></li>
-                    <li><a class="dropdown-item" href="#">Logout</a></li>
-                </ul>
-            </li>
-
+            @if (Auth::check())
+                <li class="dropdown">
+                    <a class="dropdown-toggle nav-item" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       Hello {{Auth::user()->name}}
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{{route('posts.index')}}">Posts</a></li>
+                        <li>
+                            <div class="dropdown-divider"></div>
+                        </li>
+                        <li>
+                            <form method="POST" action="{{ route('logout') }}">@csrf
+                                <button type="submit" class="dropdown-item">Logout</button>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+            @else
+                <a href="{{route('login')}}" class="btn btn-default">Login</a>
+                <a href="{{route('register')}}" class="btn btn-default">Register</a>
+            @endif
         </ul>
     </div>
 </nav>
